@@ -141,7 +141,7 @@ open http://localhost:3000/usuarios
 
 ## 👨‍💻 Autor
 
-**Vinícius M. Queiroz Silva**  
+**Vinícius M.**  
 📚 *Engenharia de Software*  
 🗓️ Novembro / 2025  
 
