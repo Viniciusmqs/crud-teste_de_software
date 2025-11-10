@@ -1,0 +1,152 @@
+{
+	"id": "a0094e51-fa4c-4ae2-8d4c-180612b86846",
+	"name": "API Usuarios MySQL - AT4",
+	"timestamp": "2025-11-10T12:54:53.869Z",
+	"collection_id": "38258768-bf533a34-87b0-4055-8ac2-4ca61f3d3571",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 5,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-11-10T12:54:53.444Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "2185e5fc-0aa3-4719-8570-d92710234f0e",
+			"name": "Listar usuarios - GET /usuarios",
+			"url": "http://localhost:3000/usuarios",
+			"time": 57,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code 200": true
+			},
+			"testPassFailCounts": {
+				"Status code 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				57
+			],
+			"allTests": [
+				{
+					"Status code 200": true
+				}
+			]
+		},
+		{
+			"id": "44e63c7a-4b90-483e-98d2-b906299e4f8a",
+			"name": "Criar usuario - POST /usuarios",
+			"url": "http://localhost:3000/usuarios",
+			"time": 18,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code 201": true,
+				"Resposta contem id": true
+			},
+			"testPassFailCounts": {
+				"Status code 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Resposta contem id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Status code 201": true,
+					"Resposta contem id": true
+				}
+			]
+		},
+		{
+			"id": "1a7796e4-0709-4371-8aca-631800d41648",
+			"name": "Atualizar usuario - PUT /usuarios/:id",
+			"url": "http://localhost:3000/usuarios/1",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code 200": true
+			},
+			"testPassFailCounts": {
+				"Status code 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code 200": true
+				}
+			]
+		},
+		{
+			"id": "88da6cfc-041f-4673-96cb-5f35c299e6b8",
+			"name": "Deletar usuario - DELETE /usuarios/:id",
+			"url": "http://localhost:3000/usuarios/1",
+			"time": 4,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code 204": true
+			},
+			"testPassFailCounts": {
+				"Status code 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code 204": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 85,
+	"collection": {
+		"requests": [
+			{
+				"id": "2185e5fc-0aa3-4719-8570-d92710234f0e",
+				"method": "GET"
+			},
+			{
+				"id": "44e63c7a-4b90-483e-98d2-b906299e4f8a",
+				"method": "POST"
+			},
+			{
+				"id": "1a7796e4-0709-4371-8aca-631800d41648",
+				"method": "PUT"
+			},
+			{
+				"id": "88da6cfc-041f-4673-96cb-5f35c299e6b8",
+				"method": "DELETE"
+			}
+		]
+	}
+}

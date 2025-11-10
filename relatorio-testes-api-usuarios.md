@@ -1,158 +1,116 @@
-# Relatorio de Testes - API de Usuarios MySQL
+# Relatorio de Testes - API Usuarios MySQL - AT4
 
 ## 1. Informacoes gerais
 
-- Projeto: API de Usuarios - AT4
-- Linguagem: Node.js (Express)
-- Banco de dados: MySQL
-- Desenvolvedor responsavel: [Seu nome]
-- Data dos testes: [preencher]
+- Nome da suite de testes: API Usuarios MySQL - AT4
+- Arquivo de origem: API_Usuarios_MySQL_AT4.postman_test_run.json
+- Data e hora da execucao: 2025-11-10T12:54:53.869Z
+- Status da execucao: finished
+- Total de testes bem sucedidos: 5
+- Total de testes com falha: 0
+- Total de iteracoes: 1
+- Tempo total da execucao: 85 ms
 
-### Versoes de ferramentas
+## 2. Resumo dos testes
 
-- Node.js: v20.19.5
-- MySQL Server: 9.4.0 Homebrew
-- Postman: [versao]
-- Sistema operacional: macOS [versao]
+Foram executadas 4 requisicoes, cobrindo as operacoes de CRUD previstas na atividade:
 
----
+| Ordem | Nome do caso de teste                          | Metodo | URL                               | Status HTTP | Resultado do teste |
+| ----- | ---------------------------------------------- | ------ | --------------------------------- | ----------- | ------------------ |
+| 1     | Listar usuarios - GET /usuarios                | GET    | http://localhost:3000/usuarios    | 200 OK      | Pass               |
+| 2     | Criar usuario - POST /usuarios                 | POST   | http://localhost:3000/usuarios    | 201 Created | Pass               |
+| 3     | Atualizar usuario - PUT /usuarios/:id          | PUT    | http://localhost:3000/usuarios/1  | 200 OK      | Pass               |
+| 4     | Deletar usuario - DELETE /usuarios/:id         | DELETE | http://localhost:3000/usuarios/1  | 204 No Content | Pass            |
 
-## 2. Descricao da API
-
-A API implementa operacoes de CRUD basicas para gerenciamento de usuarios, conforme tabela abaixo.
-
-| Acao                   | Metodo | Endpoint         | Descricao                          |
-| ---------------------- | ------ | ---------------- | ---------------------------------- |
-| Buscar todos usuarios  | GET    | /usuarios        | Retorna lista de usuarios          |
-| Criar novo usuario     | POST   | /usuarios        | Recebe dados no body e cria usuario |
-| Atualizar usuario      | PUT    | /usuarios/{id}   | Atualiza dados de um usuario       |
-| Deletar usuario        | DELETE | /usuarios/{id}   | Remove um usuario                  |
+Todos os testes automatizados definidos nos scripts do Postman foram executados com sucesso, sem falhas.
 
 ---
 
-## 3. Ambiente de teste
+## 3. Detalhamento por endpoint
 
-- Servidor local rodando em `http://localhost:3000`
-- Banco de dados `usuariosdb` com tabela `usuarios`:
-  - `id INT AUTO_INCREMENT PRIMARY KEY`
-  - `nome VARCHAR(100) NOT NULL`
-  - `email VARCHAR(100) NOT NULL UNIQUE`
+### 3.1 Listar usuarios - GET /usuarios
 
----
+- Metodo: GET  
+- URL: `http://localhost:3000/usuarios`  
+- Tempo de resposta: 57 ms  
+- Codigo de resposta: 200 OK  
 
-## 4. Casos de teste
+**Testes automatizados**
 
-### 4.1. GET /usuarios - Listar todos os usuarios
+- "Status code 200"  
+  - Resultado: Pass  
 
-- **Objetivo**  
-  Verificar se a API retorna a lista de usuarios cadastrados com sucesso.
+**Conclusao**
 
-- **Requisicao**  
-  - Metodo: GET  
-  - URL: `http://localhost:3000/usuarios`
-
-- **Resultado esperado**  
-  - Status HTTP 200  
-  - Corpo da resposta em formato JSON, contendo um array de objetos com os campos `id`, `nome` e `email`.
-
-- **Resultado obtido**  
-  - Status: [preencher]  
-  - Observacoes: [exemplo: retornou lista com N registros]
+A operacao de listagem de usuarios esta respondendo corretamente com status 200 e retorna os dados em tempo adequado.
 
 ---
 
-### 4.2. POST /usuarios - Criar novo usuario
+### 3.2 Criar usuario - POST /usuarios
 
-- **Objetivo**  
-  Validar a criacao de um novo usuario no banco de dados.
+- Metodo: POST  
+- URL: `http://localhost:3000/usuarios`  
+- Tempo de resposta: 18 ms  
+- Codigo de resposta: 201 Created  
 
-- **Requisicao**  
-  - Metodo: POST  
-  - URL: `http://localhost:3000/usuarios`  
-  - Body (JSON):
-    ```json
-    {
-      "nome": "Usuario Teste",
-      "email": "usuario.teste@example.com"
-    }
-    ```
+**Testes automatizados**
 
-- **Resultado esperado**  
-  - Status HTTP 201  
-  - Corpo da resposta contendo o `id` gerado, `nome` e `email` enviados.
+- "Status code 201"  
+  - Resultado: Pass  
+- "Resposta contem id"  
+  - Resultado: Pass  
 
-- **Resultado obtido**  
-  - Status: [preencher]  
-  - Observacoes: [exemplo: id gerado corretamente, registro visivel no banco]
+**Conclusao**
+
+A criacao de usuario esta funcionando corretamente. A API retorna status 201 e o corpo da resposta inclui o campo `id`, confirmando que o registro foi criado no banco de dados.
 
 ---
 
-### 4.3. PUT /usuarios/{id} - Atualizar usuario
+### 3.3 Atualizar usuario - PUT /usuarios/:id
 
-- **Objetivo**  
-  Verificar se a API atualiza corretamente os dados de um usuario existente.
+- Metodo: PUT  
+- URL: `http://localhost:3000/usuarios/1`  
+- Tempo de resposta: 6 ms  
+- Codigo de resposta: 200 OK  
 
-- **Precondicao**  
-  Usuario previamente criado com id conhecido (exemplo: 1).
+**Testes automatizados**
 
-- **Requisicao**  
-  - Metodo: PUT  
-  - URL: `http://localhost:3000/usuarios/1`  
-  - Body (JSON):
-    ```json
-    {
-      "nome": "Usuario Atualizado",
-      "email": "usuario.atualizado@example.com"
-    }
-    ```
+- "Status code 200"  
+  - Resultado: Pass  
 
-- **Resultado esperado**  
-  - Status HTTP 200  
-  - Corpo da resposta com os dados atualizados.
+**Conclusao**
 
-- **Resultado obtido**  
-  - Status: [preencher]  
-  - Observacoes: [exemplo: dados atualizados e refletidos no banco]
+A atualizacao de dados de usuario esta funcionando corretamente. A API retorna status 200 para atualizacoes bem sucedidas.
 
 ---
 
-### 4.4. DELETE /usuarios/{id} - Deletar usuario
+### 3.4 Deletar usuario - DELETE /usuarios/:id
 
-- **Objetivo**  
-  Verificar se a API remove um usuario existente.
+- Metodo: DELETE  
+- URL: `http://localhost:3000/usuarios/1`  
+- Tempo de resposta: 4 ms  
+- Codigo de resposta: 204 No Content  
 
-- **Precondicao**  
-  Usuario existente com id conhecido (exemplo: 1).
+**Testes automatizados**
 
-- **Requisicao**  
-  - Metodo: DELETE  
-  - URL: `http://localhost:3000/usuarios/1`
+- "Status code 204"  
+  - Resultado: Pass  
 
-- **Resultado esperado**  
-  - Status HTTP 204  
-  - Sem corpo na resposta  
-  - Registro removido da tabela `usuarios`.
+**Conclusao**
 
-- **Resultado obtido**  
-  - Status: [preencher]  
-  - Observacoes: [exemplo: registro nao encontrado apos exclusao]
+A exclusao de usuario esta funcionando corretamente. A API retorna status 204 indicando que o recurso foi removido com sucesso e nao ha corpo na resposta.
 
 ---
 
-## 5. Evidencias
+## 4. Conclusao geral
 
-- Prints de tela do Postman para cada endpoint executado com sucesso.
-- Opcional: video curto navegando pela collection, executando as requisoes e exibindo as respostas.
+Com base no arquivo de resultado gerado pelo Postman (API_Usuarios_MySQL_AT4.postman_test_run.json), todos os testes automatizados executados para a API de Usuarios MySQL foram aprovados.  
 
-Sugestao de organizacao no repositorio Git:
+As quatro operacoes especificadas na atividade da AT4 foram validadas:
 
-- `postman_collection_api_usuarios.json`
-- `relatorio-testes-api-usuarios.md`
-- pasta `evidencias/` com imagens ou video dos testes.
+- GET /usuarios: listagem de usuarios
+- POST /usuarios: criacao de novo usuario
+- PUT /usuarios/:id: atualizacao de usuario existente
+- DELETE /usuarios/:id: exclusao de usuario
 
----
-
-## 6. Conclusao
-
-A API de usuarios foi testada com as operacoes de CRUD previstas na atividade, utilizando MySQL como banco de dados e Postman como ferramenta de teste.  
-Os casos de teste descritos neste relatorio cobrem os fluxos principais de uso e servem como base para futuras evolucoes da API.
+Nao foram identificadas falhas na execucao dos testes. O relatorio anexo e o arquivo JSON exportado do Postman servem como evidencia formal da execucao e aprovacao da suite de testes.
